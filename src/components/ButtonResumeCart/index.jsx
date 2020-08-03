@@ -1,8 +1,6 @@
 import "./BottomResumeCart.scss";
 
 import React, { useState } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import { makeStyles } from "@material-ui/core/styles";
 import { Badge, Typography, IconButton } from "@material-ui/core";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import ResumeCartDialog from "../ResumeCartDialog";
