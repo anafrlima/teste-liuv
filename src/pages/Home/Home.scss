@@ -1,0 +1,26 @@
+.home {
+  &-header {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .content-logo {
+      max-width: 200px;
+      max-height: 40px;
+      padding: 20px;
+
+      .logo {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .home-header {
+    display: flex;
+    flex-direction: column;
+  }
+}
