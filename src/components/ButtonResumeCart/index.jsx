@@ -1,19 +1,17 @@
 import "./BottomResumeCart.scss";
 
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { Badge, Typography, IconButton } from "@material-ui/core";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
-import ResumeCartDialog from "../ResumeCartDialog";
+
+import types from "../../constants";
 
 function BottomResumeCart() {
-  const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
+    dispatch({ type: types.CLOSE_DIALOG, open: true });
   };
 
   return (
@@ -33,8 +31,6 @@ function BottomResumeCart() {
           R$ 10,00
         </Typography>
       </div>
-
-      <ResumeCartDialog open={open} handleClose={handleClose} />
     </>
   );
 }

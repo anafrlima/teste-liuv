@@ -5,9 +5,9 @@ const initialState = {
 };
 
 const dialog = (state = initialState, action) => {
-  const { open } = action;
+  const { open, type } = action;
 
-  switch (action.type) {
+  switch (type) {
     case types.OPEN_DIALOG:
       return {
         ...state,

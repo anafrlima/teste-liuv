@@ -1,6 +1,8 @@
 import React from "react";
 import Home from "./pages/Home";
 
+import { connect } from "react-redux";
+
 function App() {
   return (
     <div className="App">
@@ -9,4 +11,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect()(App);
