@@ -39,7 +39,7 @@ function ResumeCart() {
                 </Grid>
 
                 <Grid item xs={4}>
-                  <Typography align="center">Banana</Typography>
+                  <Typography align="center">Fanta</Typography>
                 </Grid>
 
                 <Grid item xs={4}>

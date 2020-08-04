@@ -5,9 +5,9 @@ const initialState = {
 };
 
 const menu = (state = initialState, action) => {
-  const { categories, type } = action;
+  const { categories } = action;
 
-  switch (type) {
+  switch (action.type) {
     case types.GET_MENU:
       return {
         ...state,

@@ -1,10 +1,6 @@
 import types from "../../constants";
 
-import getCategories from "../../services";
-
-const getMenu = async () => {
-  const categories = await getCategories();
-
+const getMenu = ({ categories }) => {
   return {
     type: types.GET_MENU,
     categories,
