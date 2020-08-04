@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Slide, Dialog } from "@material-ui/core";
+import { Slide, Dialog, DialogContent } from "@material-ui/core";
 
 import types from "../../constants";
 
@@ -19,12 +19,12 @@ function ResumeCartDialog({ children }) {
 
   return (
     <Dialog
+      fullWidth={true}
       TransitionComponent={Transition}
-      dividers={"paper"}
       open={open}
       onClose={handleClose}
     >
-      {children}
+      <DialogContent>{children}</DialogContent>
     </Dialog>
   );
 }

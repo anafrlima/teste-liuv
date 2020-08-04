@@ -2,6 +2,8 @@ const types = {
   OPEN_DIALOG: "OPEN_DIALOG",
   CLOSE_DIALOG: "CLOSE_DIALOG",
   GET_MENU: "GET_MENU",
+  ADD_ITEM_CART: "ADD_ITEM_CART",
+  REMOVE_ITEM_CART: "REMOVE_ITEM_CART",
 };
 
 export default types;

@@ -1,17 +1,16 @@
 import types from "../../constants";
 
-const openDialog = async (payload) => {
-  console.log("actions");
+const openDialog = (payload) => {
   return {
     type: types.OPEN_DIALOG,
-    open: true,
+    open: payload,
   };
 };
 
-const closeDialog = async () => {
+const closeDialog = () => {
   return {
     type: types.CLOSE_DIALOG,
-    open: false,
+    open: payload,
   };
 };
 

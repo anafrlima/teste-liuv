@@ -1,7 +1,7 @@
 import "./BottomResumeCart.scss";
 
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Badge, Typography, IconButton } from "@material-ui/core";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 
@@ -10,6 +10,8 @@ import types from "../../constants";
 function BottomResumeCart() {
   const dispatch = useDispatch();
 
+  const { total, qtdItens } = useSelector((state) => state.cart);
+
   const handleClickOpen = () => {
     dispatch({ type: types.CLOSE_DIALOG, open: true });
   };
@@ -17,7 +19,7 @@ function BottomResumeCart() {
   return (
     <>
       <div className="content-bottom-cart">
-        <Badge color="secondary" badgeContent="3">
+        <Badge color="secondary" badgeContent={qtdItens}>
           <IconButton
             variant="contained"
             className="btn-cart"
@@ -28,7 +30,7 @@ function BottomResumeCart() {
         </Badge>
 
         <Typography variant="subtitle1" className="value-checkout">
-          R$ 10,00
+          R$ {total ? total : "0"}
         </Typography>
       </div>
     </>
