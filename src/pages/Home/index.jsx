@@ -37,7 +37,6 @@ function Home() {
     dispatch(menuActions.getMenu({ categories }));
   }
 
-  console.log({ selectedCategory, categories });
   return (
     <Container>
       <div className="home-header">
@@ -48,26 +47,30 @@ function Home() {
       </div>
 
       <Grid container spacing={2} style={{ paddingTop: "40px" }}>
-        {categories?.map((item) => {
-          return (
-            <Grid item md={4} xs={12} key={item?.id}>
-              <Card>
-                <CardActionArea onClick={() => setSelectedCategory(item?.id)}>
-                  <CardContent>
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="h2"
-                      align="center"
+        {categories
+          ? categories.map((item) => {
+              return (
+                <Grid item md={4} xs={12} key={item?.id}>
+                  <Card>
+                    <CardActionArea
+                      onClick={() => setSelectedCategory(item?.id)}
                     >
-                      {item?.name}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-          );
-        })}
+                      <CardContent>
+                        <Typography
+                          gutterBottom
+                          variant="h5"
+                          component="h2"
+                          align="center"
+                        >
+                          {item?.name}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Grid>
+              );
+            })
+          : null}
       </Grid>
 
       <ListCards selectedCategory={selectedCategory} categories={categories} />

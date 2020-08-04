@@ -1,3 +1,26 @@
+@import ".../../../../../../styles/variables.scss";
+
 .container-list-cards {
   padding-top: 40px;
+
+  .content-image {
+    max-width: 300px;
+    max-height: 300px;
+
+    .product-image {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .content-actions-card {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .btn-buy {
+      background-color: $secondary;
+    }
+  }
 }

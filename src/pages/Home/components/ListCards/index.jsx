@@ -6,18 +6,17 @@ import {
   Card,
   CardContent,
   Typography,
-  CardActionArea,
   Button,
   CardActions,
   Grid,
+  CardMedia,
+  CardActionArea,
 } from "@material-ui/core";
 
 function ListCards({ selectedCategory, categories }) {
   const listCategorySelected = categories?.find((category) => {
     return selectedCategory === category.id;
   });
-
-  console.log(listCategorySelected);
 
   return (
     <Container className="container-list-cards">
@@ -28,6 +27,16 @@ function ListCards({ selectedCategory, categories }) {
               <Grid container item xs={12} md={3} key={id}>
                 <Card>
                   <CardActionArea>
+                    <CardMedia
+                      className="content-image"
+                      title="Image do produto"
+                    >
+                      <img
+                        src={image}
+                        className="product-image"
+                        alt={`Imagem do produto: ${name}`}
+                      />
+                    </CardMedia>
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="h2">
                         {name}
@@ -41,9 +50,9 @@ function ListCards({ selectedCategory, categories }) {
                       </Typography>
                     </CardContent>
                   </CardActionArea>
-
-                  <CardActions>
-                    <Button size="small" color="primary">
+                  <CardActions className="content-actions-card">
+                    <Typography>R$ {unit_price}</Typography>
+                    <Button variant="contained" className="btn-buy">
                       Comprar
                     </Button>
                   </CardActions>
