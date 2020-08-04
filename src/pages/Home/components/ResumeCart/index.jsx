@@ -26,20 +26,6 @@ function ResumeCart() {
     }
   }
 
-  function removeUnytItemCart(itemRemoved, qtdToRemoved) {
-    if (qtdItens > 0) {
-      dispatch(
-        cartActions.removeItemCart({
-          total,
-          qtdItens,
-          itens,
-          itemRemoved,
-          qtdToRemoved,
-        })
-      );
-    }
-  }
-
   function addItemCart(itemAdded, qtdToAdded) {
     dispatch(
       cartActions.addItemCart({
@@ -54,7 +40,7 @@ function ResumeCart() {
 
   return (
     <ResumeCartDialog>
-      <Grid container spacing={2}>
+      <Grid container spacing={4}>
         <Grid item xs={12}>
           {itens?.map((item, index) => {
             return (
@@ -66,7 +52,7 @@ function ResumeCart() {
                 key={index}
               >
                 <Grid item xs={1}>
-                  <IconButton onClick={() => removeUnytItemCart(item, 1)}>
+                  <IconButton onClick={() => removeItem(item, 1)}>
                     <RemoveIcon />
                   </IconButton>
                 </Grid>
@@ -99,7 +85,7 @@ function ResumeCart() {
           })}
         </Grid>
         <Grid item xs={12}>
-          <Grid container justify="flex-start" alignItems="center" spacing={1}>
+          <Grid container justify="flex-start" alignItems="center" spacing={5}>
             <Grid item xs={6}>
               <Typography>Quantidade de itens</Typography>
             </Grid>
@@ -107,7 +93,7 @@ function ResumeCart() {
               <Typography align="right">{qtdItens ?? 0}</Typography>
             </Grid>
           </Grid>
-          <Grid container justify="flex-start" alignItems="center" spacing={1}>
+          <Grid container justify="flex-start" alignItems="center" spacing={5}>
             <Grid item xs={6}>
               <Typography>Total</Typography>
             </Grid>

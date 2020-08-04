@@ -3,12 +3,35 @@ import types from "../../constants";
 const addItemCart = (payload) => {
   const { qtdItens, itens, total, itemAdded, qtdToAdded } = payload;
 
+  const itemPresentArray = itens.find((item) => {
+    return item.id === itemAdded.id;
+  });
+
+  if (!itemPresentArray) {
+    const itensWithItemNotPresent = [
+      ...itens,
+      { qtd: qtdToAdded, ...itemAdded },
+    ];
+
+    const newQtd = qtdItens + qtdToAdded;
+    const newTotal = total + itemAdded.unit_price;
+
+    return {
+      type: types.ADD_ITEM_CART,
+      itens: itensWithItemNotPresent,
+      qtdItens: newQtd,
+      total: newTotal,
+    };
+  }
+
   const itensWithitemAdded = itens.map((item) => {
-    if (item.id === itemAdded.id) {
-      return {
-        ...item,
-        qtd: item.qtd + qtdToAdded,
-      };
+    if (itemPresentArray) {
+      if (item.id === itemAdded.id) {
+        return {
+          ...item,
+          qtd: item.qtd + qtdToAdded,
+        };
+      }
     }
 
     return item;
@@ -56,7 +79,7 @@ const removeItemCart = (payload) => {
   const totalPriceItemRemoved = itemRemoved.unit_price * qtdToRemoved;
   const newTotal = total - totalPriceItemRemoved;
 
-  const newQtdItens = qtdItens - itemRemoved.qtd;
+  const newQtdItens = qtdItens - qtdToRemoved;
 
   return {
     type: types.REMOVE_ITEM_CART,

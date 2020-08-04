@@ -1,22 +1,9 @@
 import types from "../../constants";
 
 const initialState = {
-  qtdItens: 6,
-  itens: [
-    {
-      id: 1,
-      name: "Fanta",
-      unit_price: 5.5,
-      qtd: 3,
-    },
-    {
-      id: 2,
-      name: "X-burguer",
-      unit_price: 13.0,
-      qtd: 3,
-    },
-  ],
-  total: 55.5,
+  qtdItens: 0,
+  itens: [],
+  total: 0,
 };
 
 const cart = (state = initialState, action) => {
